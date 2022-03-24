@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from viewer.admin import BookAdmin
-from viewer.models import Book
+from viewer.admin import BookAdmin, AuthorAdmin
+from viewer.models import Book, Author
 from viewer.views import HomeView
 
 admin.site.register(Book, BookAdmin)
+admin.site.register(Author, AuthorAdmin)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
