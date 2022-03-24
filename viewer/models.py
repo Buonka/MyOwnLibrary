@@ -1,34 +1,34 @@
 from django.db.models import Model, CharField, ForeignKey, DO_NOTHING, DateField, TextField
 
 
-class Genres(Model):
-    type = CharField(max_length=128)
+# class Genre(Model):
+#     type = CharField(max_length=128)
+#
+#     def __str__(self):
+#         return f"{self.type}"
+#
+#
+# class Publisher(Model):
+#     firm = CharField(max_length=128)
+#
+#     def __str__(self):
+#         return f"{self.firm}"
+#
+#
+# class Author(Model):
+#     name = CharField(max_length=128)
+#
+#     def __str__(self):
+#         return f"{self.name}"
 
-    def __str__(self):
-        return f"{self.type}"
 
-
-class Publishers(Model):
-    firm = CharField(max_length=128)
-
-    def __str__(self):
-        return f"{self.firm}"
-
-
-class Authors(Model):
-    name = CharField(max_length=128)
-
-    def __str__(self):
-        return f"{self.name}"
-
-
-class Books(Model):
+class Book(Model):
     title = CharField(max_length=128)
-    genre = ForeignKey(Genres, on_delete=DO_NOTHING)
-    publisher = ForeignKey(Publishers, on_delete=DO_NOTHING)
-    author = ForeignKey(Authors, on_delete=DO_NOTHING)
+    genre = CharField(max_length=128)
+    publisher = CharField(max_length=128)
+    author = CharField(max_length=128)
     date_release = DateField()
-    translation_by = CharField(max_length=128)
+    translation_by = CharField(max_length=128, blank=True)
     description = TextField()
 
     def __str__(self):
