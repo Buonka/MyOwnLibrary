@@ -1,7 +1,7 @@
 from django.urls import path
 
 from viewer.views import BookView, BookDetailView, AuthorView, AuthorDetailView, AuthorCreateView, GenreView, \
-    BookCreateView
+    BookCreateView, GenreCreateView
 
 app_name = 'viewer'
 urlpatterns = [
@@ -12,4 +12,5 @@ urlpatterns = [
     path('author/<int:pk>', AuthorDetailView.as_view(), name='read_author'),
     path('create_author/', AuthorCreateView.as_view(), name='create_author'),
     path('create_book/', BookCreateView.as_view(), name='create_book'),
+    path('create_genre/', GenreCreateView.as_view(), name='create_genre'),
 ]
