@@ -1,9 +1,9 @@
 from logging import getLogger
 
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, ListView, DetailView, FormView
+from django.views.generic import TemplateView, ListView, DetailView, FormView, CreateView
 
-from viewer.forms import AuthorForm
+from viewer.forms import AuthorForm, BookForm
 from viewer.models import Book, Author, Genre
 
 LOG = getLogger()
@@ -38,16 +38,23 @@ class AuthorDetailView(DetailView):
     model = Author
 
 
+class BookCreateView(CreateView):
+    template_name = 'forms/form.html'
+    form_class = BookForm
+    success_url = reverse_lazy('viewer:create_book')
+    permission_required = 'viewer:add_book'
+
+
 class AuthorCreateView(FormView):
     template_name = 'forms/form.html'
     form_class = AuthorForm
     success_url = reverse_lazy('viewer:create_author')
     permission_required = 'viewer.add_author'
 
-    def form_valid(self, form):
-        result = super().form_valid(form)
-        cleaned_data = form.cleaned_data
-        Author.objects.create(
-            name=cleaned_data['author'],
-        )
-        return result
+    # def form_valid(self, form):
+    #     result = super().form_valid(form)
+    #     cleaned_data = form.cleaned_data
+    #     Author.objects.create(
+    #         name=cleaned_data['author'],
+    #     )
+    #     return result

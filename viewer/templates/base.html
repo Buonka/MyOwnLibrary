@@ -19,13 +19,16 @@
                     <a class="nav-link active" aria-current="page" href="{% url 'viewer:book' %}">Books</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'viewer:author' %}">Author</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'viewer:create_book' %}">Add Book</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'viewer:author' %}">Authors</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'viewer:create_author' %}">Add Author</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'viewer:genre' %}">Genre</a>
+                    <a class="nav-link" href="{% url 'viewer:genre' %}">Genres</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
