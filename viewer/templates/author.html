@@ -10,5 +10,13 @@
     <th scope="col">Name</th>
   </tr>
   </thead>
+  <tbody>
+  {% for author in object_list %}
+  <tr>
+    <th scope="row">{{ author.id }}</th>
+    <td>{{ author.name }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
 </table>
 {% endblock %}

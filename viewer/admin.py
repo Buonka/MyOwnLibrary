@@ -15,3 +15,9 @@ class AuthorAdmin(ModelAdmin):
     @staticmethod
     def genre_name(obj):
         return obj.name.lower()
+
+
+class GenreAdmin(ModelAdmin):
+    @staticmethod
+    def genre_name(obj):
+        return obj.name.lower()

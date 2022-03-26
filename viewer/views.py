@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, FormView
 
 from viewer.forms import AuthorForm
-from viewer.models import Book, Author
+from viewer.models import Book, Author, Genre
 
 LOG = getLogger()
 
@@ -21,6 +21,11 @@ class BookView(ListView):
 class AuthorView(ListView):
     template_name = 'author.html'
     model = Author
+
+
+class GenreView(ListView):
+    template_name = 'genre.html'
+    model = Genre
 
 
 class BookDetailView(DetailView):
