@@ -20,7 +20,7 @@ class Book(Model):
     genre = ForeignKey(Genre, on_delete=DO_NOTHING)
     publisher = CharField(max_length=128)
     author = ForeignKey(Author, on_delete=DO_NOTHING)
-    date_release = DateField()
+    release_date = DateField()
     translation_by = CharField(max_length=128, blank=True)
     description = TextField()
 
